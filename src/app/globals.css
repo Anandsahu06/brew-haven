@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root, .dark {
+    --bg-primary: #121110;
+    --bg-surface: #1A1816;
+    --bg-card: #221F1C;
+    --bg-card-hover: #2B2824;
+    --text-primary: #FDFBF7;
+    --text-secondary: #A8A096;
+    --text-muted: #787066;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(197, 155, 39, 0.4);
+    --shadow-subtle: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+    
+    --color-cream: #FDFBF7;
+    --color-coffee: #3B281C;
+    --color-soft-black: #121110;
+    --color-warm-beige: #EFE9E1;
+    --color-white: #FFFFFF;
+    --color-gold: #C59B27;
+  }
+
+  .light {
+    --bg-primary: #FDFBF7;
+    --bg-surface: #F5F0EA;
+    --bg-card: #FFFFFF;
+    --bg-card-hover: #FAF7F2;
+    --text-primary: #121110;
+    --text-secondary: #595147;
+    --text-muted: #8C8275;
+    --border-color: rgba(18, 17, 16, 0.08);
+    --border-hover: rgba(197, 155, 39, 0.5);
+    --shadow-subtle: 0 4px 20px -2px rgba(18, 17, 16, 0.06);
+
+    --color-cream: #FDFBF7;
+    --color-coffee: #3B281C;
+    --color-soft-black: #121110;
+    --color-warm-beige: #EFE9E1;
+    --color-white: #FFFFFF;
+    --color-gold: #C59B27;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* Reusable Timeless Design Tokens */
+.surface-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.surface-card-hover:hover {
+  background-color: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-subtle);
+  transform: translateY(-2px);
+}
+
+.surface-panel {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+}
+
+.navbar-glass {
+  background-color: rgba(18, 17, 16, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+}
+.light .navbar-glass {
+  background-color: rgba(253, 251, 247, 0.88);
+}
+
+/* Skeleton Loading Shimmer */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.skeleton {
+  background-color: var(--bg-surface);
+  animation: skeleton-pulse 1.8s ease-in-out infinite;
+  border-radius: 8px;
+}
