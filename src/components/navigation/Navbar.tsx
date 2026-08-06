@@ -43,10 +43,10 @@ export const Navbar: React.FC = () => {
           : 'navbar-glass py-2'
       }`}
     >
-      {/* Symmetric Full-Width Outer Container with Identical Left & Right Margins for All Screen Breakpoints */}
+      {/* Outer Container with Equal Outer Edge Margins */}
       <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 h-20 flex items-center justify-between">
         
-        {/* Brand Logo - Perfectly Balanced Left Edge */}
+        {/* Brand Logo - Left Anchor */}
         <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
           <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-coffee flex items-center justify-center text-gold border border-gold/40 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(197,155,39,0.4)] transition-all duration-300">
             <Coffee className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gold group-hover:rotate-6 transition-transform duration-300" />
@@ -61,8 +61,8 @@ export const Navbar: React.FC = () => {
           </div>
         </Link>
 
-        {/* Desktop Nav Links - Centered Glass Pill (Visible on Desktop 1024px+) */}
-        <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2.5 surface-card px-3.5 xl:px-5 py-1.5 rounded-full border-border-subtle shrink-0">
+        {/* Desktop Nav Links - Centered Glass Pill with Perfectly Equal Left & Right Gap Margins (mx-6 lg:mx-8 xl:mx-10) */}
+        <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2.5 surface-card px-4 xl:px-6 py-2 rounded-full border-border-subtle shrink-0 mx-6 lg:mx-8 xl:mx-10">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -89,14 +89,14 @@ export const Navbar: React.FC = () => {
           })}
         </nav>
 
-        {/* Action Tools Section - Perfectly Balanced Right Edge */}
-        <div className="hidden sm:flex items-center gap-2 lg:gap-3 font-sans shrink-0">
+        {/* Action Tools Section - Right Anchor with Equal Badge Gaps (gap-3 lg:gap-3.5) */}
+        <div className="hidden sm:flex items-center gap-3 lg:gap-3.5 font-sans shrink-0">
           
           {/* 1. Customer Profile & Loyalty Badge */}
           <Link
             href="/dashboard"
             title="Customer Profile & Loyalty Dashboard"
-            className="px-3 lg:px-3.5 py-2 rounded-full bg-sky-500/15 border border-sky-500/40 text-sky-400 font-bold text-[11px] flex items-center gap-1.5 hover:bg-sky-500/25 hover:border-sky-400 hover:scale-105 shadow-[0_0_15px_rgba(56,189,248,0.2)] active:scale-95 transition-all duration-300 shrink-0 whitespace-nowrap"
+            className="px-3.5 py-2 rounded-full bg-sky-500/15 border border-sky-500/40 text-sky-400 font-bold text-[11px] flex items-center gap-1.5 hover:bg-sky-500/25 hover:border-sky-400 hover:scale-105 shadow-[0_0_15px_rgba(56,189,248,0.2)] active:scale-95 transition-all duration-300 shrink-0 whitespace-nowrap"
           >
             <User className="w-3.5 h-3.5 text-sky-400 shrink-0" />
             <span className="hidden xl:inline uppercase tracking-wider text-[10px]">Profile</span>
@@ -106,7 +106,7 @@ export const Navbar: React.FC = () => {
           <Link
             href="/admin"
             title="Roastery Live Admin Control Panel"
-            className="px-3 lg:px-3.5 py-2 rounded-full bg-amber-500/15 border border-amber-500/50 text-amber-400 font-bold text-[11px] flex items-center gap-1.5 hover:bg-amber-500/25 hover:border-amber-400 hover:scale-105 shadow-[0_0_15px_rgba(245,158,11,0.25)] active:scale-95 transition-all duration-300 shrink-0 whitespace-nowrap"
+            className="px-3.5 py-2 rounded-full bg-amber-500/15 border border-amber-500/50 text-amber-400 font-bold text-[11px] flex items-center gap-1.5 hover:bg-amber-500/25 hover:border-amber-400 hover:scale-105 shadow-[0_0_15px_rgba(245,158,11,0.25)] active:scale-95 transition-all duration-300 shrink-0 whitespace-nowrap"
           >
             <LayoutDashboard className="w-3.5 h-3.5 text-amber-400 shrink-0" />
             <span className="hidden xl:inline uppercase tracking-wider text-[10px]">Admin</span>
@@ -119,7 +119,7 @@ export const Navbar: React.FC = () => {
           <button
             onClick={() => setIsCartOpen(true)}
             title="Shopping Cart & Order Checkout"
-            className="px-3 lg:px-3.5 py-2 rounded-full bg-gold/15 border border-gold/40 text-gold font-bold text-[11px] flex items-center gap-1.5 hover:bg-gold/25 hover:border-gold hover:scale-105 shadow-[0_0_15px_rgba(197,155,39,0.2)] active:scale-95 transition-all duration-300 shrink-0 group whitespace-nowrap"
+            className="px-3.5 py-2 rounded-full bg-gold/15 border border-gold/40 text-gold font-bold text-[11px] flex items-center gap-1.5 hover:bg-gold/25 hover:border-gold hover:scale-105 shadow-[0_0_15px_rgba(197,155,39,0.2)] active:scale-95 transition-all duration-300 shrink-0 group whitespace-nowrap"
           >
             <ShoppingBag className="w-3.5 h-3.5 text-gold group-hover:scale-110 transition-transform shrink-0" />
             <span className="hidden xl:inline uppercase tracking-wider text-[10px]">Cart</span>
@@ -134,10 +134,10 @@ export const Navbar: React.FC = () => {
           <Link
             href="/reserve"
             title="Book a Table at Flagship Roasteries"
-            className="relative flex items-center gap-1.5 lg:gap-2 px-4 lg:px-5 py-2.5 text-xs uppercase tracking-wider font-extrabold rounded-full bg-gradient-to-r from-[#E6C665] via-[#C59B27] to-[#D4AF37] text-soft-black border border-yellow-200/60 shadow-[0_0_22px_rgba(197,155,39,0.5)] hover:shadow-[0_0_32px_rgba(197,155,39,0.8)] hover:scale-105 hover:-translate-y-0.5 active:scale-95 transition-all duration-300 shrink-0 group overflow-hidden whitespace-nowrap"
+            className="relative flex items-center gap-2 px-5 py-2.5 text-xs uppercase tracking-wider font-extrabold rounded-full bg-gradient-to-r from-[#E6C665] via-[#C59B27] to-[#D4AF37] text-soft-black border border-yellow-200/60 shadow-[0_0_22px_rgba(197,155,39,0.5)] hover:shadow-[0_0_32px_rgba(197,155,39,0.8)] hover:scale-105 hover:-translate-y-0.5 active:scale-95 transition-all duration-300 shrink-0 group overflow-hidden whitespace-nowrap"
           >
-            <Calendar className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-soft-black stroke-[2.5] group-hover:rotate-12 transition-transform duration-300 shrink-0" />
-            <span className="font-display tracking-widest font-extrabold text-[10.5px] lg:text-[11px] whitespace-nowrap">Reserve Table</span>
+            <Calendar className="w-4 h-4 text-soft-black stroke-[2.5] group-hover:rotate-12 transition-transform duration-300 shrink-0" />
+            <span className="font-display tracking-widest font-extrabold text-[11px] whitespace-nowrap">Reserve Table</span>
             
             {/* Shimmer Light Ray */}
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/35 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
