@@ -11,16 +11,16 @@ export const ThemeToggle: React.FC = () => {
     <button
       onClick={toggleTheme}
       title={theme === 'dark' ? 'Switch to Light Theme' : 'Switch to Dark Theme'}
-      className="px-3 py-1.5 rounded-full bg-gold/15 border border-gold/40 text-gold font-bold text-[11px] flex items-center gap-1.5 hover:bg-gold/25 hover:border-gold hover:scale-105 shadow-[0_0_15px_rgba(197,155,39,0.2)] active:scale-95 transition-all duration-300 shrink-0 font-sans"
+      className="px-3.5 py-2 rounded-full bg-gold/15 border border-gold/40 text-gold font-bold text-[11px] flex items-center gap-1.5 hover:bg-gold/25 hover:border-gold hover:scale-105 shadow-[0_0_15px_rgba(197,155,39,0.2)] active:scale-95 transition-all duration-300 shrink-0 font-sans whitespace-nowrap"
     >
       {theme === 'dark' ? (
         <>
-          <Sun className="w-3.5 h-3.5 text-gold" />
+          <Sun className="w-3.5 h-3.5 text-gold shrink-0" />
           <span className="hidden xl:inline text-[10px] tracking-wider uppercase">Dark</span>
         </>
       ) : (
         <>
-          <Moon className="w-3.5 h-3.5 text-coffee" />
+          <Moon className="w-3.5 h-3.5 text-coffee shrink-0" />
           <span className="hidden xl:inline text-[10px] tracking-wider uppercase text-coffee">Light</span>
         </>
       )}
