@@ -80,7 +80,7 @@ export const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center pt-28 pb-20 overflow-hidden bg-bg-primary">
+    <section className="relative min-h-[82vh] flex items-center justify-center pt-24 pb-14 overflow-hidden bg-bg-primary">
       
       {/* Particle Canvas Overlay */}
       <canvas
@@ -99,112 +99,112 @@ export const HeroSection: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-bg-primary via-bg-primary/90 to-bg-primary" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full text-center">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full text-center">
         
         {/* Award Badge Pill */}
         <motion.div
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full surface-card text-xs text-txt-primary border-border-subtle hover:border-gold hover:bg-gold/10 hover:-translate-y-0.5 transition-all duration-300 mb-8"
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full surface-card text-[11px] text-txt-primary border-border-subtle hover:border-gold hover:bg-gold/10 hover:-translate-y-0.5 transition-all duration-300 mb-6"
         >
-          <Award className="w-4 h-4 text-gold" />
+          <Award className="w-3.5 h-3.5 text-gold" />
           <span className="text-gold font-semibold uppercase tracking-wider font-display">Awwwards Showcase</span>
           <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
           <span className="text-txt-muted">Specialty Roastery</span>
         </motion.div>
 
-        {/* Main Headline */}
+        {/* Main Headline - Scaled Down Sleek Typography */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-txt-primary max-w-4xl mx-auto leading-[1.08]"
+          className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-txt-primary max-w-3xl mx-auto leading-[1.08]"
         >
           Where Every Cup <br className="hidden sm:inline" />
           <span className="text-gold font-normal italic">Tells a Story</span>
         </motion.h1>
 
-        {/* Subtitle */}
+        {/* Subtitle - Sleek Compact Scale */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-6 text-sm sm:text-lg text-txt-secondary max-w-2xl mx-auto font-sans font-light leading-relaxed"
+          className="mt-4 text-xs sm:text-base text-txt-secondary max-w-xl mx-auto font-sans font-light leading-relaxed"
         >
           An elevated fusion of direct-trade Indian highland micro-lots, precision roasting science, and architectural cafe sanctuaries.
         </motion.p>
 
-        {/* Action Buttons */}
+        {/* Action Buttons - Compact Sleek Scale */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.45 }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-4 font-sans"
+          className="mt-8 flex flex-wrap items-center justify-center gap-3 font-sans"
         >
           <Link
             href="/menu"
-            className="px-7 py-3.5 rounded-full bg-gold text-soft-black font-bold text-xs uppercase tracking-wider shadow-sm hover:bg-gold-light hover:shadow-[0_4px_25px_rgba(197,155,39,0.4)] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-300 flex items-center gap-2"
+            className="px-5 py-2.5 rounded-full bg-gold text-soft-black font-bold text-[11px] uppercase tracking-wider shadow-sm hover:bg-gold-light hover:shadow-[0_4px_25px_rgba(197,155,39,0.4)] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-300 flex items-center gap-2"
           >
             Explore Menu
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </Link>
 
           <Link
             href="/customizer"
             onClick={playSteamSound}
-            className="px-7 py-3.5 rounded-full surface-card hover:border-gold hover:text-gold hover:bg-gold/10 hover:-translate-y-0.5 hover:shadow-[0_4px_20px_rgba(197,155,39,0.2)] text-txt-primary font-semibold text-xs uppercase tracking-wider transition-all duration-300 flex items-center gap-2 active:scale-95"
+            className="px-5 py-2.5 rounded-full surface-card hover:border-gold hover:text-gold hover:bg-gold/10 hover:-translate-y-0.5 hover:shadow-[0_4px_20px_rgba(197,155,39,0.2)] text-txt-primary font-semibold text-[11px] uppercase tracking-wider transition-all duration-300 flex items-center gap-2 active:scale-95"
           >
-            <Flame className="w-4 h-4 text-gold" />
+            <Flame className="w-3.5 h-3.5 text-gold" />
             Custom Brew Lab
           </Link>
 
           <Link
             href="/reserve"
-            className="px-6 py-3.5 rounded-full border border-border-subtle hover:border-gold hover:text-gold hover:bg-gold/10 hover:-translate-y-0.5 hover:shadow-[0_4px_20px_rgba(197,155,39,0.15)] text-txt-secondary font-medium text-xs uppercase tracking-wider transition-all duration-300 flex items-center gap-2 active:scale-95"
+            className="px-5 py-2.5 rounded-full border border-border-subtle hover:border-gold hover:text-gold hover:bg-gold/10 hover:-translate-y-0.5 hover:shadow-[0_4px_20px_rgba(197,155,39,0.15)] text-txt-secondary font-medium text-[11px] uppercase tracking-wider transition-all duration-300 flex items-center gap-2 active:scale-95"
           >
-            <Calendar className="w-4 h-4 text-gold" />
+            <Calendar className="w-3.5 h-3.5 text-gold" />
             Reserve Table
           </Link>
         </motion.div>
 
-        {/* Whitespace Feature Grid */}
+        {/* Whitespace Feature Grid - Sleek Compact Cards */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.6 }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
+          className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3.5 max-w-3xl mx-auto"
         >
-          <div className="p-5 rounded-2xl surface-card text-left hover:border-gold hover:bg-gold/5 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(197,155,39,0.15)] transition-all duration-300">
-            <div className="flex items-center gap-2 text-gold mb-1">
-              <Star className="w-4 h-4 fill-gold" />
-              <span className="font-display font-bold text-xl text-txt-primary">92.5+</span>
+          <div className="p-4 rounded-xl surface-card text-left hover:border-gold hover:bg-gold/5 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(197,155,39,0.15)] transition-all duration-300">
+            <div className="flex items-center gap-1.5 text-gold mb-0.5">
+              <Star className="w-3.5 h-3.5 fill-gold" />
+              <span className="font-display font-bold text-lg text-txt-primary">92.5+</span>
             </div>
-            <p className="text-xs text-txt-muted font-sans">SCA Micro-lot Cupping Score</p>
+            <p className="text-[11px] text-txt-muted font-sans">SCA Micro-lot Cupping Score</p>
           </div>
 
-          <div className="p-5 rounded-2xl surface-card text-left hover:border-gold hover:bg-gold/5 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(197,155,39,0.15)] transition-all duration-300">
-            <div className="flex items-center gap-2 text-gold mb-1">
-              <Compass className="w-4 h-4" />
-              <span className="font-display font-bold text-xl text-txt-primary">100%</span>
+          <div className="p-4 rounded-xl surface-card text-left hover:border-gold hover:bg-gold/5 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(197,155,39,0.15)] transition-all duration-300">
+            <div className="flex items-center gap-1.5 text-gold mb-0.5">
+              <Compass className="w-3.5 h-3.5" />
+              <span className="font-display font-bold text-lg text-txt-primary">100%</span>
             </div>
-            <p className="text-xs text-txt-muted font-sans">Direct Trade Farm Sourcing</p>
+            <p className="text-[11px] text-txt-muted font-sans">Direct Trade Farm Sourcing</p>
           </div>
 
-          <div className="p-5 rounded-2xl surface-card text-left hover:border-gold hover:bg-gold/5 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(197,155,39,0.15)] transition-all duration-300">
-            <div className="flex items-center gap-2 text-gold mb-1">
-              <Flame className="w-4 h-4" />
-              <span className="font-display font-bold text-xl text-txt-primary">24-Hr</span>
+          <div className="p-4 rounded-xl surface-card text-left hover:border-gold hover:bg-gold/5 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(197,155,39,0.15)] transition-all duration-300">
+            <div className="flex items-center gap-1.5 text-gold mb-0.5">
+              <Flame className="w-3.5 h-3.5" />
+              <span className="font-display font-bold text-lg text-txt-primary">24-Hr</span>
             </div>
-            <p className="text-xs text-txt-muted font-sans">Ice Tower Slow Drip</p>
+            <p className="text-[11px] text-txt-muted font-sans">Ice Tower Slow Drip</p>
           </div>
 
-          <div className="p-5 rounded-2xl surface-card text-left hover:border-gold hover:bg-gold/5 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(197,155,39,0.15)] transition-all duration-300">
-            <div className="flex items-center gap-2 text-gold mb-1">
-              <Award className="w-4 h-4" />
-              <span className="font-display font-bold text-xl text-txt-primary">3 Hubs</span>
+          <div className="p-4 rounded-xl surface-card text-left hover:border-gold hover:bg-gold/5 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(197,155,39,0.15)] transition-all duration-300">
+            <div className="flex items-center gap-1.5 text-gold mb-0.5">
+              <Award className="w-3.5 h-3.5" />
+              <span className="font-display font-bold text-lg text-txt-primary">3 Hubs</span>
             </div>
-            <p className="text-xs text-txt-muted font-sans">Architectural Flagships</p>
+            <p className="text-[11px] text-txt-muted font-sans">Architectural Flagships</p>
           </div>
         </motion.div>
 
