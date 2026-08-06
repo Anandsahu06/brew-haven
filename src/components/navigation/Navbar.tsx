@@ -46,7 +46,7 @@ export const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
-        {/* Brand Logo with generous right margin (mr-4 sm:mr-6 lg:mr-8) */}
+        {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-3 group shrink-0 mr-4 sm:mr-6 lg:mr-8">
           <div className="w-9 h-9 rounded-full bg-coffee flex items-center justify-center text-gold border border-gold/40 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(197,155,39,0.4)] transition-all duration-300">
             <Coffee className="w-4 h-4 text-gold group-hover:rotate-6 transition-transform duration-300" />
@@ -89,37 +89,40 @@ export const Navbar: React.FC = () => {
           })}
         </nav>
 
-        {/* Desktop Uniform Action Buttons (All w-9 h-9 circles with equal gap-2.5 and generous left margin on QR button) */}
-        <div className="hidden sm:flex items-center gap-2.5 ml-2 sm:ml-4 lg:ml-6">
+        {/* Desktop Action Tools Section */}
+        <div className="hidden sm:flex items-center gap-2.5 ml-2 sm:ml-4 lg:ml-6 font-sans">
           
-          {/* 1. Digital Table QR Modal */}
-          <QRCodeMenuModal />
+          {/* 1. Digital Table QR Code Modal */}
+          <div title="In-Cafe Digital QR Table Menu">
+            <QRCodeMenuModal />
+          </div>
 
-          {/* 2. Customer Loyalty Dashboard */}
+          {/* 2. Customer Account & Loyalty Dashboard */}
           <Link
             href="/dashboard"
-            title="Customer Loyalty Dashboard"
+            title="Customer Loyalty & Profile Dashboard"
             className="w-9 h-9 flex items-center justify-center rounded-full surface-card border border-border-subtle text-txt-muted hover:text-gold hover:border-gold hover:bg-gold/10 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(197,155,39,0.2)] active:scale-95 transition-all duration-300 shrink-0"
           >
             <User className="w-4 h-4" />
           </Link>
 
-          {/* 3. Roastery Admin Control Panel */}
+          {/* 3. Distinct Admin Panel Badge Button (Highlighted Amber Badge) */}
           <Link
             href="/admin"
-            title="Roastery Live Admin Control"
-            className="w-9 h-9 flex items-center justify-center rounded-full surface-card border border-border-subtle text-txt-muted hover:text-gold hover:border-gold hover:bg-gold/10 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(197,155,39,0.2)] active:scale-95 transition-all duration-300 shrink-0"
+            title="Roastery Live Admin Control Panel"
+            className="px-3 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/50 text-amber-400 font-bold text-[11px] flex items-center gap-1.5 hover:bg-amber-500/25 hover:border-amber-400 hover:scale-105 shadow-[0_0_15px_rgba(245,158,11,0.25)] active:scale-95 transition-all duration-300 shrink-0"
           >
-            <LayoutDashboard className="w-4 h-4" />
+            <LayoutDashboard className="w-3.5 h-3.5 text-amber-400" />
+            <span className="hidden xl:inline uppercase tracking-wider text-[10px]">Admin</span>
           </Link>
 
-          {/* 4. Theme Toggle (Sun/Moon) */}
+          {/* 4. Distinct Theme Toggle Pill Button (Highlighted Sun/Moon Gold Badge) */}
           <ThemeToggle />
 
-          {/* 5. Cart Trigger */}
+          {/* 5. Cart Trigger Button */}
           <button
             onClick={() => setIsCartOpen(true)}
-            title="Shopping Cart"
+            title="Shopping Cart & Checkout"
             className="relative w-9 h-9 flex items-center justify-center rounded-full surface-card border border-border-subtle text-txt-muted hover:text-gold hover:border-gold hover:bg-gold/10 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(197,155,39,0.2)] active:scale-95 transition-all duration-300 shrink-0 group"
           >
             <ShoppingBag className="w-4 h-4 group-hover:scale-110 transition-transform" />
@@ -133,7 +136,7 @@ export const Navbar: React.FC = () => {
           {/* 6. Table Reservation Button */}
           <Link
             href="/reserve"
-            className="flex items-center gap-1.5 px-4.5 py-2 text-xs uppercase tracking-wider font-bold rounded-full bg-gold text-soft-black hover:bg-gold-light hover:shadow-[0_4px_25px_rgba(197,155,39,0.4)] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-300 font-sans ml-1"
+            className="flex items-center gap-1.5 px-4.5 py-2 text-xs uppercase tracking-wider font-bold rounded-full bg-gold text-soft-black hover:bg-gold-light hover:shadow-[0_4px_25px_rgba(197,155,39,0.4)] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-300 ml-1"
           >
             <Calendar className="w-3.5 h-3.5" />
             Reserve Table
@@ -187,10 +190,10 @@ export const Navbar: React.FC = () => {
               ))}
 
               <div className="flex items-center gap-4 pt-2">
-                <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)} className="text-xs text-gold flex items-center gap-1.5">
+                <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)} className="text-xs text-gold flex items-center gap-1.5 font-sans font-semibold">
                   <User className="w-4 h-4" /> Customer Dashboard
                 </Link>
-                <Link href="/admin" onClick={() => setMobileMenuOpen(false)} className="text-xs text-gold flex items-center gap-1.5">
+                <Link href="/admin" onClick={() => setMobileMenuOpen(false)} className="text-xs text-amber-400 flex items-center gap-1.5 font-sans font-semibold">
                   <LayoutDashboard className="w-4 h-4" /> Admin Controls
                 </Link>
               </div>
