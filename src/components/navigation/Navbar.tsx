@@ -47,7 +47,7 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
+        <Link href="/" className="flex items-center gap-3 group shrink-0">
           <div className="w-9 h-9 rounded-full bg-coffee flex items-center justify-center text-gold border border-gold/40 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(197,155,39,0.4)] transition-all duration-300">
             <Coffee className="w-4 h-4 text-gold group-hover:rotate-6 transition-transform duration-300" />
           </div>
@@ -89,33 +89,38 @@ export const Navbar: React.FC = () => {
           })}
         </nav>
 
-        {/* Actions */}
-        <div className="hidden sm:flex items-center gap-2">
+        {/* Desktop Uniform Action Buttons (All w-9 h-9 circles with equal gap-2.5) */}
+        <div className="hidden sm:flex items-center gap-2.5">
           
+          {/* 1. Digital Table QR Modal */}
           <QRCodeMenuModal />
 
+          {/* 2. Customer Loyalty Dashboard */}
           <Link
             href="/dashboard"
             title="Customer Loyalty Dashboard"
-            className="p-2.5 rounded-full surface-card text-txt-muted hover:text-gold hover:border-gold hover:bg-gold/10 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(197,155,39,0.2)] active:scale-95 transition-all duration-300"
+            className="w-9 h-9 flex items-center justify-center rounded-full surface-card border border-border-subtle text-txt-muted hover:text-gold hover:border-gold hover:bg-gold/10 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(197,155,39,0.2)] active:scale-95 transition-all duration-300 shrink-0"
           >
             <User className="w-4 h-4" />
           </Link>
 
+          {/* 3. Roastery Admin Control Panel */}
           <Link
             href="/admin"
             title="Roastery Live Admin Control"
-            className="p-2.5 rounded-full surface-card text-txt-muted hover:text-gold hover:border-gold hover:bg-gold/10 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(197,155,39,0.2)] active:scale-95 transition-all duration-300"
+            className="w-9 h-9 flex items-center justify-center rounded-full surface-card border border-border-subtle text-txt-muted hover:text-gold hover:border-gold hover:bg-gold/10 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(197,155,39,0.2)] active:scale-95 transition-all duration-300 shrink-0"
           >
             <LayoutDashboard className="w-4 h-4" />
           </Link>
 
+          {/* 4. Theme Toggle (Sun/Moon) */}
           <ThemeToggle />
 
-          {/* Cart Trigger */}
+          {/* 5. Cart Trigger */}
           <button
             onClick={() => setIsCartOpen(true)}
-            className="relative p-2.5 rounded-full bg-bg-card border border-border-subtle hover:border-gold text-txt-primary hover:text-gold hover:bg-gold/10 hover:-translate-y-0.5 hover:shadow-[0_4px_20px_rgba(197,155,39,0.25)] active:scale-95 transition-all duration-300 group"
+            title="Shopping Cart"
+            className="relative w-9 h-9 flex items-center justify-center rounded-full surface-card border border-border-subtle text-txt-muted hover:text-gold hover:border-gold hover:bg-gold/10 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(197,155,39,0.2)] active:scale-95 transition-all duration-300 shrink-0 group"
           >
             <ShoppingBag className="w-4 h-4 group-hover:scale-110 transition-transform" />
             {totalItemsCount > 0 && (
@@ -125,10 +130,10 @@ export const Navbar: React.FC = () => {
             )}
           </button>
 
-          {/* Table Reservation Button */}
+          {/* 6. Table Reservation Button */}
           <Link
             href="/reserve"
-            className="flex items-center gap-1.5 px-4.5 py-2 text-xs uppercase tracking-wider font-bold rounded-full bg-gold text-soft-black hover:bg-gold-light hover:shadow-[0_4px_25px_rgba(197,155,39,0.4)] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-300 font-sans"
+            className="flex items-center gap-1.5 px-4.5 py-2 text-xs uppercase tracking-wider font-bold rounded-full bg-gold text-soft-black hover:bg-gold-light hover:shadow-[0_4px_25px_rgba(197,155,39,0.4)] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-300 font-sans ml-1"
           >
             <Calendar className="w-3.5 h-3.5" />
             Reserve Table
@@ -140,7 +145,7 @@ export const Navbar: React.FC = () => {
           <ThemeToggle />
           <button
             onClick={() => setIsCartOpen(true)}
-            className="relative p-2 rounded-full bg-bg-card text-txt-primary hover:text-gold transition-colors"
+            className="relative w-9 h-9 flex items-center justify-center rounded-full surface-card border border-border-subtle text-txt-muted hover:text-gold transition-colors"
           >
             <ShoppingBag className="w-4 h-4" />
             {totalItemsCount > 0 && (
