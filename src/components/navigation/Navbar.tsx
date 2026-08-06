@@ -43,32 +43,32 @@ export const Navbar: React.FC = () => {
           : 'navbar-glass py-2'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
-        {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-3 group shrink-0 mr-4 sm:mr-6 lg:mr-8">
+        {/* Brand Logo - Shifted neatly to the left with compact right margin */}
+        <Link href="/" className="flex items-center gap-2.5 group shrink-0 mr-2 lg:mr-4">
           <div className="w-9 h-9 rounded-full bg-coffee flex items-center justify-center text-gold border border-gold/40 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(197,155,39,0.4)] transition-all duration-300">
             <Coffee className="w-4 h-4 text-gold group-hover:rotate-6 transition-transform duration-300" />
           </div>
           <div className="flex flex-col">
-            <span className="font-display text-xl font-bold tracking-tight text-txt-primary group-hover:text-gold transition-colors">
+            <span className="font-display text-lg lg:text-xl font-bold tracking-tight text-txt-primary group-hover:text-gold transition-colors whitespace-nowrap">
               BREW HAVEN
             </span>
-            <span className="text-[9px] tracking-widest text-txt-muted uppercase font-sans -mt-1">
+            <span className="text-[8.5px] lg:text-[9px] tracking-widest text-txt-muted uppercase font-sans -mt-1 whitespace-nowrap">
               Specialty Roastery
             </span>
           </div>
         </Link>
 
-        {/* Desktop Nav Links */}
-        <nav className="hidden lg:flex items-center gap-1 surface-card px-4 py-1.5 rounded-full border-border-subtle">
+        {/* Desktop Nav Links - Single Line No-Wrap Padding */}
+        <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 surface-card px-2.5 xl:px-4 py-1.5 rounded-full border-border-subtle shrink-0">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative px-3.5 py-1.5 text-[11px] font-medium tracking-wider uppercase transition-all duration-300 rounded-full hover:-translate-y-0.5 ${
+                className={`relative px-2.5 xl:px-3.5 py-1.5 text-[10.5px] xl:text-[11px] font-medium tracking-wider uppercase transition-all duration-300 rounded-full hover:-translate-y-0.5 whitespace-nowrap shrink-0 ${
                   isActive ? 'text-txt-primary font-bold' : 'text-txt-muted hover:text-gold'
                 }`}
               >
@@ -79,8 +79,8 @@ export const Navbar: React.FC = () => {
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
-                <span className="relative z-10 flex items-center gap-1">
-                  {link.isSpecial && <Flame className="w-3.5 h-3.5 text-gold" />}
+                <span className="relative z-10 flex items-center gap-1 whitespace-nowrap">
+                  {link.isSpecial && <Flame className="w-3.5 h-3.5 text-gold shrink-0" />}
                   {link.name}
                 </span>
               </Link>
@@ -89,38 +89,38 @@ export const Navbar: React.FC = () => {
         </nav>
 
         {/* Desktop Action Tools Section */}
-        <div className="hidden sm:flex items-center gap-2.5 ml-2 sm:ml-4 lg:ml-6 font-sans">
+        <div className="hidden sm:flex items-center gap-1.5 lg:gap-2 font-sans shrink-0">
           
-          {/* 1. Customer Profile & Loyalty Badge (Sky Blue Badge) */}
+          {/* 1. Customer Profile & Loyalty Badge */}
           <Link
             href="/dashboard"
             title="Customer Profile & Loyalty Dashboard"
-            className="px-3 py-1.5 rounded-full bg-sky-500/15 border border-sky-500/40 text-sky-400 font-bold text-[11px] flex items-center gap-1.5 hover:bg-sky-500/25 hover:border-sky-400 hover:scale-105 shadow-[0_0_15px_rgba(56,189,248,0.2)] active:scale-95 transition-all duration-300 shrink-0"
+            className="px-2.5 lg:px-3 py-1.5 rounded-full bg-sky-500/15 border border-sky-500/40 text-sky-400 font-bold text-[11px] flex items-center gap-1.5 hover:bg-sky-500/25 hover:border-sky-400 hover:scale-105 shadow-[0_0_15px_rgba(56,189,248,0.2)] active:scale-95 transition-all duration-300 shrink-0 whitespace-nowrap"
           >
-            <User className="w-3.5 h-3.5 text-sky-400" />
+            <User className="w-3.5 h-3.5 text-sky-400 shrink-0" />
             <span className="hidden xl:inline uppercase tracking-wider text-[10px]">Profile</span>
           </Link>
 
-          {/* 2. Admin Control Panel Badge (Amber Gold Badge) */}
+          {/* 2. Admin Control Panel Badge */}
           <Link
             href="/admin"
             title="Roastery Live Admin Control Panel"
-            className="px-3 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/50 text-amber-400 font-bold text-[11px] flex items-center gap-1.5 hover:bg-amber-500/25 hover:border-amber-400 hover:scale-105 shadow-[0_0_15px_rgba(245,158,11,0.25)] active:scale-95 transition-all duration-300 shrink-0"
+            className="px-2.5 lg:px-3 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/50 text-amber-400 font-bold text-[11px] flex items-center gap-1.5 hover:bg-amber-500/25 hover:border-amber-400 hover:scale-105 shadow-[0_0_15px_rgba(245,158,11,0.25)] active:scale-95 transition-all duration-300 shrink-0 whitespace-nowrap"
           >
-            <LayoutDashboard className="w-3.5 h-3.5 text-amber-400" />
+            <LayoutDashboard className="w-3.5 h-3.5 text-amber-400 shrink-0" />
             <span className="hidden xl:inline uppercase tracking-wider text-[10px]">Admin</span>
           </Link>
 
-          {/* 3. Theme Toggle Badge (Gold Sun/Moon Badge) */}
+          {/* 3. Theme Toggle Badge */}
           <ThemeToggle />
 
-          {/* 4. Cart Badge Button (Gold Pill Badge) */}
+          {/* 4. Cart Badge Button */}
           <button
             onClick={() => setIsCartOpen(true)}
             title="Shopping Cart & Order Checkout"
-            className="px-3 py-1.5 rounded-full bg-gold/15 border border-gold/40 text-gold font-bold text-[11px] flex items-center gap-1.5 hover:bg-gold/25 hover:border-gold hover:scale-105 shadow-[0_0_15px_rgba(197,155,39,0.2)] active:scale-95 transition-all duration-300 shrink-0 group"
+            className="px-2.5 lg:px-3 py-1.5 rounded-full bg-gold/15 border border-gold/40 text-gold font-bold text-[11px] flex items-center gap-1.5 hover:bg-gold/25 hover:border-gold hover:scale-105 shadow-[0_0_15px_rgba(197,155,39,0.2)] active:scale-95 transition-all duration-300 shrink-0 group whitespace-nowrap"
           >
-            <ShoppingBag className="w-3.5 h-3.5 text-gold group-hover:scale-110 transition-transform" />
+            <ShoppingBag className="w-3.5 h-3.5 text-gold group-hover:scale-110 transition-transform shrink-0" />
             <span className="hidden xl:inline uppercase tracking-wider text-[10px]">Cart</span>
             {totalItemsCount > 0 && (
               <span className="ml-0.5 px-1.5 py-0.2 rounded-full bg-gold text-soft-black font-extrabold text-[10px] shadow-sm">
@@ -133,10 +133,10 @@ export const Navbar: React.FC = () => {
           <Link
             href="/reserve"
             title="Book a Table at Flagship Roasteries"
-            className="relative flex items-center gap-2 px-5 py-2.5 text-xs uppercase tracking-wider font-extrabold rounded-full bg-gradient-to-r from-[#E6C665] via-[#C59B27] to-[#D4AF37] text-soft-black border border-yellow-200/60 shadow-[0_0_22px_rgba(197,155,39,0.5)] hover:shadow-[0_0_32px_rgba(197,155,39,0.8)] hover:scale-105 hover:-translate-y-0.5 active:scale-95 transition-all duration-300 ml-1.5 shrink-0 group overflow-hidden"
+            className="relative flex items-center gap-1.5 lg:gap-2 px-3.5 lg:px-4.5 py-2 text-xs uppercase tracking-wider font-extrabold rounded-full bg-gradient-to-r from-[#E6C665] via-[#C59B27] to-[#D4AF37] text-soft-black border border-yellow-200/60 shadow-[0_0_22px_rgba(197,155,39,0.5)] hover:shadow-[0_0_32px_rgba(197,155,39,0.8)] hover:scale-105 hover:-translate-y-0.5 active:scale-95 transition-all duration-300 shrink-0 group overflow-hidden whitespace-nowrap"
           >
-            <Calendar className="w-4 h-4 text-soft-black stroke-[2.5] group-hover:rotate-12 transition-transform duration-300" />
-            <span className="font-display tracking-widest font-extrabold text-[11px]">Reserve Table</span>
+            <Calendar className="w-3.5 h-3.5 text-soft-black stroke-[2.5] group-hover:rotate-12 transition-transform duration-300 shrink-0" />
+            <span className="font-display tracking-widest font-extrabold text-[10.5px] lg:text-[11px] whitespace-nowrap">Reserve Table</span>
             
             {/* Shimmer Light Ray */}
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/35 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
