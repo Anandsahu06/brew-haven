@@ -1,7 +1,6 @@
 'use client';
 
 import React, { createContext, useContext, useState } from 'react';
-import { audioSynth } from '@/lib/audioSynth';
 
 interface SoundscapeContextType {
   isPlaying: boolean;
@@ -16,29 +15,14 @@ interface SoundscapeContextType {
 const SoundscapeContext = createContext<SoundscapeContextType | undefined>(undefined);
 
 export const SoundscapeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolumeState] = useState(0.5);
-  const [activeTrackName, setActiveTrackName] = useState('Rain & Espresso Lounge');
+  const [isPlaying] = useState(false);
+  const [volume, setVolumeState] = useState(0);
+  const [activeTrackName, setActiveTrackName] = useState('Silent Mode');
 
-  const togglePlay = () => {
-    if (isPlaying) {
-      audioSynth.stopSoundscape();
-      setIsPlaying(false);
-    } else {
-      audioSynth.startSoundscape();
-      audioSynth.setVolume(volume);
-      setIsPlaying(true);
-    }
-  };
-
-  const setVolume = (val: number) => {
-    setVolumeState(val);
-    audioSynth.setVolume(val);
-  };
-
-  const playSteamSound = () => {
-    audioSynth.toggleSteamBurst();
-  };
+  // Deactivated silent no-op functions
+  const togglePlay = () => {};
+  const setVolume = (val: number) => { setVolumeState(val); };
+  const playSteamSound = () => {};
 
   return (
     <SoundscapeContext.Provider

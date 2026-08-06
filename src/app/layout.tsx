@@ -7,7 +7,6 @@ import { WishlistProvider } from '@/context/WishlistContext';
 import { Navbar } from '@/components/navigation/Navbar';
 import { MobileBottomNav } from '@/components/navigation/MobileBottomNav';
 import { Footer } from '@/components/navigation/Footer';
-import { AmbientPlayer } from '@/components/soundscape/AmbientPlayer';
 import { CartSheet } from '@/components/cart/CartSheet';
 import { RazorpayModal } from '@/components/checkout/RazorpayModal';
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
@@ -154,7 +153,6 @@ export default function RootLayout({
                 <MobileBottomNav />
 
                 {/* Global Floating Components */}
-                <AmbientPlayer />
                 <CartSheet />
                 <RazorpayModal />
 

@@ -4,16 +4,14 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Coffee, ShoppingBag, Volume2, VolumeX, Menu, X, Calendar, Flame, User, LayoutDashboard } from 'lucide-react';
+import { Coffee, ShoppingBag, Menu, X, Calendar, Flame, User, LayoutDashboard } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
-import { useSoundscape } from '@/context/SoundscapeContext';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { QRCodeMenuModal } from '@/components/features/QRCodeMenuModal';
 
 export const Navbar: React.FC = () => {
   const pathname = usePathname();
   const { totalItemsCount, setIsCartOpen } = useCart();
-  const { isPlaying, togglePlay, playSteamSound } = useSoundscape();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -114,36 +112,6 @@ export const Navbar: React.FC = () => {
 
           <ThemeToggle />
 
-          {/* Ambient Sound Toggle */}
-          <button
-            onClick={() => {
-              togglePlay();
-              playSteamSound();
-            }}
-            title={isPlaying ? 'Pause Ambient Cafe Sounds' : 'Play Ambient Cafe Sounds'}
-            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium border transition-all duration-300 hover:-translate-y-0.5 ${
-              isPlaying
-                ? 'bg-gold/15 border-gold text-gold shadow-[0_0_15px_rgba(197,155,39,0.25)]'
-                : 'bg-bg-card border-border-subtle text-txt-muted hover:text-gold hover:border-gold hover:bg-gold/10'
-            }`}
-          >
-            {isPlaying ? (
-              <>
-                <Volume2 className="w-3.5 h-3.5 animate-pulse" />
-                <span className="flex items-center gap-0.5">
-                  <span className="w-1 h-3 bg-gold animate-pulse" />
-                  <span className="w-1 h-3 bg-gold animate-pulse [animation-delay:-0.2s]" />
-                  <span className="w-1 h-3 bg-gold animate-pulse [animation-delay:-0.4s]" />
-                </span>
-              </>
-            ) : (
-              <>
-                <VolumeX className="w-3.5 h-3.5" />
-                <span>Audio</span>
-              </>
-            )}
-          </button>
-
           {/* Cart Trigger */}
           <button
             onClick={() => setIsCartOpen(true)}
@@ -223,19 +191,6 @@ export const Navbar: React.FC = () => {
               </div>
 
               <hr className="border-border-subtle my-2" />
-
-              <div className="flex items-center justify-between">
-                <button
-                  onClick={() => {
-                    togglePlay();
-                    playSteamSound();
-                  }}
-                  className="flex items-center gap-2 text-xs text-gold font-medium font-sans"
-                >
-                  <Volume2 className="w-4 h-4" />
-                  {isPlaying ? 'Pause Ambient Sounds' : 'Play Cafe Ambience'}
-                </button>
-              </div>
 
               <Link
                 href="/reserve"
