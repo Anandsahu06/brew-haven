@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Coffee, ShoppingBag, Menu, X, Calendar, Flame, User, LayoutDashboard } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
-import { QRCodeMenuModal } from '@/components/features/QRCodeMenuModal';
 
 export const Navbar: React.FC = () => {
   const pathname = usePathname();
@@ -90,14 +89,9 @@ export const Navbar: React.FC = () => {
         </nav>
 
         {/* Desktop Action Tools Section */}
-        <div className="hidden sm:flex items-center gap-2 ml-2 sm:ml-4 lg:ml-6 font-sans">
+        <div className="hidden sm:flex items-center gap-2.5 ml-2 sm:ml-4 lg:ml-6 font-sans">
           
-          {/* 1. Digital Table QR Code Badge */}
-          <div title="In-Cafe Digital QR Table Menu">
-            <QRCodeMenuModal />
-          </div>
-
-          {/* 2. Customer Profile & Loyalty Badge (Sky Blue Badge) */}
+          {/* 1. Customer Profile & Loyalty Badge (Sky Blue Badge) */}
           <Link
             href="/dashboard"
             title="Customer Profile & Loyalty Dashboard"
@@ -107,7 +101,7 @@ export const Navbar: React.FC = () => {
             <span className="hidden xl:inline uppercase tracking-wider text-[10px]">Profile</span>
           </Link>
 
-          {/* 3. Admin Control Panel Badge (Amber Gold Badge) */}
+          {/* 2. Admin Control Panel Badge (Amber Gold Badge) */}
           <Link
             href="/admin"
             title="Roastery Live Admin Control Panel"
@@ -117,10 +111,10 @@ export const Navbar: React.FC = () => {
             <span className="hidden xl:inline uppercase tracking-wider text-[10px]">Admin</span>
           </Link>
 
-          {/* 4. Theme Toggle Badge (Gold Sun/Moon Badge) */}
+          {/* 3. Theme Toggle Badge (Gold Sun/Moon Badge) */}
           <ThemeToggle />
 
-          {/* 5. Cart Badge Button (Gold Pill Badge) */}
+          {/* 4. Cart Badge Button (Gold Pill Badge) */}
           <button
             onClick={() => setIsCartOpen(true)}
             title="Shopping Cart & Order Checkout"
@@ -135,7 +129,7 @@ export const Navbar: React.FC = () => {
             )}
           </button>
 
-          {/* 6. Prominent Luxury Gold Shimmer Reserve Table CTA Button */}
+          {/* 5. Prominent Luxury Gold Shimmer Reserve Table CTA Button */}
           <Link
             href="/reserve"
             title="Book a Table at Flagship Roasteries"
