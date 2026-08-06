@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Coffee, ShoppingBag, Menu, X, Calendar, Flame, User, LayoutDashboard } from 'lucide-react';
+import { Coffee, ShoppingBag, Menu, X, Calendar, Flame, User, ShieldCheck } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { QRCodeMenuModal } from '@/components/features/QRCodeMenuModal';
@@ -89,7 +89,7 @@ export const Navbar: React.FC = () => {
           })}
         </nav>
 
-        {/* Desktop Action Tools Section with Explicit Text Badges for ALL Buttons */}
+        {/* Desktop Action Tools Section */}
         <div className="hidden sm:flex items-center gap-2 ml-2 sm:ml-4 lg:ml-6 font-sans">
           
           {/* 1. Digital Table QR Code Badge */}
@@ -107,20 +107,10 @@ export const Navbar: React.FC = () => {
             <span className="hidden xl:inline uppercase tracking-wider text-[10px]">Profile</span>
           </Link>
 
-          {/* 3. Admin Control Panel Badge (Amber Gold Badge) */}
-          <Link
-            href="/admin"
-            title="Roastery Live Admin Control Panel"
-            className="px-3 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/50 text-amber-400 font-bold text-[11px] flex items-center gap-1.5 hover:bg-amber-500/25 hover:border-amber-400 hover:scale-105 shadow-[0_0_15px_rgba(245,158,11,0.25)] active:scale-95 transition-all duration-300 shrink-0"
-          >
-            <LayoutDashboard className="w-3.5 h-3.5 text-amber-400" />
-            <span className="hidden xl:inline uppercase tracking-wider text-[10px]">Admin</span>
-          </Link>
-
-          {/* 4. Theme Toggle Badge (Gold Sun/Moon Badge) */}
+          {/* 3. Theme Toggle Badge (Gold Sun/Moon Badge) */}
           <ThemeToggle />
 
-          {/* 5. Cart Badge Button (Gold Pill Badge) */}
+          {/* 4. Cart Badge Button (Gold Pill Badge) */}
           <button
             onClick={() => setIsCartOpen(true)}
             title="Shopping Cart & Order Checkout"
@@ -135,14 +125,28 @@ export const Navbar: React.FC = () => {
             )}
           </button>
 
-          {/* 6. Reserve Table Button */}
+          {/* Subtle Visual Divider Separating Customer Tools from Management */}
+          <div className="h-5 w-[1px] bg-border-subtle/80 mx-1 shrink-0" />
+
+          {/* 5. Distinct Isolated Admin Control Badge (Prevents Customer Accidental Clicks) */}
+          <Link
+            href="/admin"
+            title="Roastery Management Admin Control Panel (Staff Only)"
+            className="px-2.5 py-1.5 rounded-full bg-amber-950/40 border border-amber-500/40 text-amber-400 font-semibold text-[10px] flex items-center gap-1.5 hover:bg-amber-500/20 hover:border-amber-400 transition-all duration-300 shrink-0 opacity-80 hover:opacity-100"
+          >
+            <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+            <span className="hidden xl:inline uppercase tracking-widest font-mono text-[9px]">ADMIN</span>
+          </Link>
+
+          {/* 6. Prominent Glowing Flagship Reserve Table CTA Button */}
           <Link
             href="/reserve"
-            className="flex items-center gap-1.5 px-4.5 py-2 text-xs uppercase tracking-wider font-bold rounded-full bg-gold text-soft-black hover:bg-gold-light hover:shadow-[0_4px_25px_rgba(197,155,39,0.4)] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-300 ml-1"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-gold via-amber-400 to-gold text-soft-black font-extrabold text-xs uppercase tracking-wider shadow-[0_4px_25px_rgba(197,155,39,0.5)] hover:shadow-[0_6px_30px_rgba(197,155,39,0.75)] hover:scale-105 active:scale-95 transition-all duration-300 font-sans border border-gold-light/60 ml-2 shrink-0"
           >
-            <Calendar className="w-3.5 h-3.5" />
+            <Calendar className="w-4 h-4 stroke-[2.5]" />
             Reserve Table
           </Link>
+
         </div>
 
         {/* Mobile Hamburger Toggle */}
@@ -196,7 +200,7 @@ export const Navbar: React.FC = () => {
                   <User className="w-4 h-4" /> Customer Profile
                 </Link>
                 <Link href="/admin" onClick={() => setMobileMenuOpen(false)} className="text-xs text-amber-400 flex items-center gap-1.5 font-sans font-semibold">
-                  <LayoutDashboard className="w-4 h-4" /> Admin Controls
+                  <ShieldCheck className="w-4 h-4" /> Admin Panel (Staff)
                 </Link>
               </div>
 
@@ -205,7 +209,7 @@ export const Navbar: React.FC = () => {
               <Link
                 href="/reserve"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full text-center py-3 rounded-xl bg-gold text-soft-black font-bold uppercase tracking-wider text-xs font-sans hover:bg-gold-light hover:shadow-[0_4px_25px_rgba(197,155,39,0.4)] transition-all"
+                className="w-full text-center py-3.5 rounded-xl bg-gradient-to-r from-gold via-amber-400 to-gold text-soft-black font-extrabold uppercase tracking-wider text-xs font-sans shadow-[0_4px_25px_rgba(197,155,39,0.5)] transition-all"
               >
                 Reserve Table
               </Link>
