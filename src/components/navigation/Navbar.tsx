@@ -46,8 +46,8 @@ export const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
-        {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-3 group shrink-0">
+        {/* Brand Logo with generous right margin (mr-4 sm:mr-6 lg:mr-8) */}
+        <Link href="/" className="flex items-center gap-3 group shrink-0 mr-4 sm:mr-6 lg:mr-8">
           <div className="w-9 h-9 rounded-full bg-coffee flex items-center justify-center text-gold border border-gold/40 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(197,155,39,0.4)] transition-all duration-300">
             <Coffee className="w-4 h-4 text-gold group-hover:rotate-6 transition-transform duration-300" />
           </div>
@@ -89,8 +89,8 @@ export const Navbar: React.FC = () => {
           })}
         </nav>
 
-        {/* Desktop Uniform Action Buttons (All w-9 h-9 circles with equal gap-2.5) */}
-        <div className="hidden sm:flex items-center gap-2.5">
+        {/* Desktop Uniform Action Buttons (All w-9 h-9 circles with equal gap-2.5 and generous left margin on QR button) */}
+        <div className="hidden sm:flex items-center gap-2.5 ml-2 sm:ml-4 lg:ml-6">
           
           {/* 1. Digital Table QR Modal */}
           <QRCodeMenuModal />
