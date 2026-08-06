@@ -1,6 +1,7 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Heart, Plus, Star, MapPin, Check } from 'lucide-react';
@@ -8,7 +9,6 @@ import { MenuItem } from '@/types';
 import { formatCurrency } from '@/lib/utils';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
-import { useSoundscape } from '@/context/SoundscapeContext';
 
 interface ItemDetailModalProps {
   item: MenuItem | null;
@@ -18,23 +18,26 @@ interface ItemDetailModalProps {
 export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({ item, onClose }) => {
   const { addToCart } = useCart();
   const { toggleWishlist, isInWishlist } = useWishlist();
-  const { playSteamSound } = useSoundscape();
-  const [added, setAdded] = React.useState(false);
+  const [added, setAdded] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   if (!item) return null;
 
   const isFavorite = isInWishlist(item.id);
 
   const handleAddToCart = () => {
-    playSteamSound();
     addToCart(item, 'menu', 1);
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
   };
 
-  return (
+  const modalContent = (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4">
+      <div className="fixed inset-0 z-[9999] overflow-y-auto flex items-center justify-center p-4 sm:p-6">
         
         {/* Backdrop */}
         <motion.div
@@ -42,7 +45,7 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({ item, onClose 
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-black/70 backdrop-blur-sm"
+          className="fixed inset-0 bg-black/85 backdrop-blur-md"
         />
 
         {/* Modal Card */}
@@ -50,9 +53,9 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({ item, onClose 
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-2xl bg-bg-card border border-border-subtle rounded-3xl shadow-2xl overflow-hidden text-txt-primary z-10 font-sans"
+          className="relative w-full max-w-2xl bg-bg-card border border-border-subtle rounded-3xl shadow-[0_10px_50px_rgba(0,0,0,0.8)] overflow-hidden text-txt-primary z-10 font-sans border-gold/30"
         >
-          {/* Close & Favorite buttons with enhanced hover scale & gold glow */}
+          {/* Close & Favorite buttons */}
           <div className="absolute top-4 right-4 z-20 flex gap-2">
             <button
               onClick={() => toggleWishlist(item)}
@@ -145,7 +148,7 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({ item, onClose 
                 )}
               </div>
 
-              {/* Price & Add CTA with enhanced hover lift & 25px gold shadow */}
+              {/* Price & Add CTA */}
               <div className="pt-4 border-t border-border-subtle flex items-center justify-between gap-4">
                 <div>
                   <span className="text-[10px] text-txt-muted uppercase font-bold tracking-widest block">Price</span>
@@ -183,4 +186,6 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({ item, onClose 
       </div>
     </AnimatePresence>
   );
+
+  return mounted ? createPortal(modalContent, document.body) : null;
 };
