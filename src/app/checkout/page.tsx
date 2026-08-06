@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { ShieldCheck, Store, Truck, Check } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { formatCurrency } from '@/lib/utils';
+import { sanitizeInput } from '@/lib/security';
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -18,6 +19,13 @@ export default function CheckoutPage() {
 
   const handlePlaceOrder = (e: React.FormEvent) => {
     e.preventDefault();
+    const cleanName = sanitizeInput(fullName);
+    const cleanEmail = sanitizeInput(email);
+    const cleanPhone = sanitizeInput(phone);
+    const cleanAddress = sanitizeInput(address);
+
+    if (!cleanName || !cleanEmail || !cleanPhone) return;
+
     clearCart();
     router.push('/checkout/success');
   };
@@ -86,7 +94,7 @@ export default function CheckoutPage() {
               </div>
             </div>
 
-            {/* Customer Information (Blank by Default) */}
+            {/* Customer Information (Blank by Default with Sanitization) */}
             <div className="p-6 rounded-3xl surface-card space-y-4 border-border-subtle shadow-lg">
               <label className="text-xs uppercase font-bold tracking-widest text-gold font-display">
                 2. Contact & Delivery Details
