@@ -43,33 +43,33 @@ export const Navbar: React.FC = () => {
           : 'navbar-glass py-2'
       }`}
     >
-      {/* Symmetric Full-Width Outer Container with Identical Left & Right Margins */}
-      <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 h-20 flex items-center justify-between">
+      {/* Symmetric Full-Width Outer Container with Identical Left & Right Margins for All Screen Breakpoints */}
+      <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 h-20 flex items-center justify-between">
         
         {/* Brand Logo - Perfectly Balanced Left Edge */}
-        <Link href="/" className="flex items-center gap-3 group shrink-0">
-          <div className="w-9 h-9 rounded-full bg-coffee flex items-center justify-center text-gold border border-gold/40 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(197,155,39,0.4)] transition-all duration-300">
-            <Coffee className="w-4 h-4 text-gold group-hover:rotate-6 transition-transform duration-300" />
+        <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-coffee flex items-center justify-center text-gold border border-gold/40 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(197,155,39,0.4)] transition-all duration-300">
+            <Coffee className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gold group-hover:rotate-6 transition-transform duration-300" />
           </div>
           <div className="flex flex-col">
-            <span className="font-display text-lg lg:text-xl font-bold tracking-tight text-txt-primary group-hover:text-gold transition-colors whitespace-nowrap">
+            <span className="font-display text-base sm:text-lg lg:text-xl font-bold tracking-tight text-txt-primary group-hover:text-gold transition-colors whitespace-nowrap">
               BREW HAVEN
             </span>
-            <span className="text-[8.5px] lg:text-[9px] tracking-widest text-txt-muted uppercase font-sans -mt-1 whitespace-nowrap">
+            <span className="text-[8px] sm:text-[8.5px] lg:text-[9px] tracking-widest text-txt-muted uppercase font-sans -mt-1 whitespace-nowrap">
               Specialty Roastery
             </span>
           </div>
         </Link>
 
-        {/* Desktop Nav Links - Centered Glass Pill */}
-        <nav className="hidden lg:flex items-center gap-2 xl:gap-3 surface-card px-4 xl:px-6 py-2 rounded-full border-border-subtle shrink-0">
+        {/* Desktop Nav Links - Centered Glass Pill (Visible on Desktop 1024px+) */}
+        <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2.5 surface-card px-3.5 xl:px-5 py-1.5 rounded-full border-border-subtle shrink-0">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative px-3.5 xl:px-4 py-1.5 text-[11px] font-semibold tracking-wider uppercase transition-all duration-300 rounded-full hover:-translate-y-0.5 whitespace-nowrap shrink-0 ${
+                className={`relative px-3 xl:px-4 py-1.5 text-[10.5px] xl:text-[11px] font-semibold tracking-wider uppercase transition-all duration-300 rounded-full hover:-translate-y-0.5 whitespace-nowrap shrink-0 ${
                   isActive ? 'text-txt-primary font-bold' : 'text-txt-muted hover:text-gold'
                 }`}
               >
@@ -89,14 +89,14 @@ export const Navbar: React.FC = () => {
           })}
         </nav>
 
-        {/* Desktop Action Tools Section - Perfectly Balanced Right Edge */}
-        <div className="hidden sm:flex items-center gap-3 lg:gap-3.5 font-sans shrink-0">
+        {/* Action Tools Section - Perfectly Balanced Right Edge */}
+        <div className="hidden sm:flex items-center gap-2 lg:gap-3 font-sans shrink-0">
           
           {/* 1. Customer Profile & Loyalty Badge */}
           <Link
             href="/dashboard"
             title="Customer Profile & Loyalty Dashboard"
-            className="px-3.5 py-2 rounded-full bg-sky-500/15 border border-sky-500/40 text-sky-400 font-bold text-[11px] flex items-center gap-1.5 hover:bg-sky-500/25 hover:border-sky-400 hover:scale-105 shadow-[0_0_15px_rgba(56,189,248,0.2)] active:scale-95 transition-all duration-300 shrink-0 whitespace-nowrap"
+            className="px-3 lg:px-3.5 py-2 rounded-full bg-sky-500/15 border border-sky-500/40 text-sky-400 font-bold text-[11px] flex items-center gap-1.5 hover:bg-sky-500/25 hover:border-sky-400 hover:scale-105 shadow-[0_0_15px_rgba(56,189,248,0.2)] active:scale-95 transition-all duration-300 shrink-0 whitespace-nowrap"
           >
             <User className="w-3.5 h-3.5 text-sky-400 shrink-0" />
             <span className="hidden xl:inline uppercase tracking-wider text-[10px]">Profile</span>
@@ -106,7 +106,7 @@ export const Navbar: React.FC = () => {
           <Link
             href="/admin"
             title="Roastery Live Admin Control Panel"
-            className="px-3.5 py-2 rounded-full bg-amber-500/15 border border-amber-500/50 text-amber-400 font-bold text-[11px] flex items-center gap-1.5 hover:bg-amber-500/25 hover:border-amber-400 hover:scale-105 shadow-[0_0_15px_rgba(245,158,11,0.25)] active:scale-95 transition-all duration-300 shrink-0 whitespace-nowrap"
+            className="px-3 lg:px-3.5 py-2 rounded-full bg-amber-500/15 border border-amber-500/50 text-amber-400 font-bold text-[11px] flex items-center gap-1.5 hover:bg-amber-500/25 hover:border-amber-400 hover:scale-105 shadow-[0_0_15px_rgba(245,158,11,0.25)] active:scale-95 transition-all duration-300 shrink-0 whitespace-nowrap"
           >
             <LayoutDashboard className="w-3.5 h-3.5 text-amber-400 shrink-0" />
             <span className="hidden xl:inline uppercase tracking-wider text-[10px]">Admin</span>
@@ -119,7 +119,7 @@ export const Navbar: React.FC = () => {
           <button
             onClick={() => setIsCartOpen(true)}
             title="Shopping Cart & Order Checkout"
-            className="px-3.5 py-2 rounded-full bg-gold/15 border border-gold/40 text-gold font-bold text-[11px] flex items-center gap-1.5 hover:bg-gold/25 hover:border-gold hover:scale-105 shadow-[0_0_15px_rgba(197,155,39,0.2)] active:scale-95 transition-all duration-300 shrink-0 group whitespace-nowrap"
+            className="px-3 lg:px-3.5 py-2 rounded-full bg-gold/15 border border-gold/40 text-gold font-bold text-[11px] flex items-center gap-1.5 hover:bg-gold/25 hover:border-gold hover:scale-105 shadow-[0_0_15px_rgba(197,155,39,0.2)] active:scale-95 transition-all duration-300 shrink-0 group whitespace-nowrap"
           >
             <ShoppingBag className="w-3.5 h-3.5 text-gold group-hover:scale-110 transition-transform shrink-0" />
             <span className="hidden xl:inline uppercase tracking-wider text-[10px]">Cart</span>
@@ -134,10 +134,10 @@ export const Navbar: React.FC = () => {
           <Link
             href="/reserve"
             title="Book a Table at Flagship Roasteries"
-            className="relative flex items-center gap-2 px-5 py-2.5 text-xs uppercase tracking-wider font-extrabold rounded-full bg-gradient-to-r from-[#E6C665] via-[#C59B27] to-[#D4AF37] text-soft-black border border-yellow-200/60 shadow-[0_0_22px_rgba(197,155,39,0.5)] hover:shadow-[0_0_32px_rgba(197,155,39,0.8)] hover:scale-105 hover:-translate-y-0.5 active:scale-95 transition-all duration-300 shrink-0 group overflow-hidden whitespace-nowrap"
+            className="relative flex items-center gap-1.5 lg:gap-2 px-4 lg:px-5 py-2.5 text-xs uppercase tracking-wider font-extrabold rounded-full bg-gradient-to-r from-[#E6C665] via-[#C59B27] to-[#D4AF37] text-soft-black border border-yellow-200/60 shadow-[0_0_22px_rgba(197,155,39,0.5)] hover:shadow-[0_0_32px_rgba(197,155,39,0.8)] hover:scale-105 hover:-translate-y-0.5 active:scale-95 transition-all duration-300 shrink-0 group overflow-hidden whitespace-nowrap"
           >
-            <Calendar className="w-4 h-4 text-soft-black stroke-[2.5] group-hover:rotate-12 transition-transform duration-300 shrink-0" />
-            <span className="font-display tracking-widest font-extrabold text-[11px] whitespace-nowrap">Reserve Table</span>
+            <Calendar className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-soft-black stroke-[2.5] group-hover:rotate-12 transition-transform duration-300 shrink-0" />
+            <span className="font-display tracking-widest font-extrabold text-[10.5px] lg:text-[11px] whitespace-nowrap">Reserve Table</span>
             
             {/* Shimmer Light Ray */}
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/35 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
@@ -145,7 +145,7 @@ export const Navbar: React.FC = () => {
 
         </div>
 
-        {/* Mobile Hamburger Toggle */}
+        {/* Mobile Hamburger Toggle (Visible on Mobile & Tablet <1024px) */}
         <div className="flex lg:hidden items-center gap-2">
           <ThemeToggle />
           <button
@@ -161,9 +161,10 @@ export const Navbar: React.FC = () => {
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg text-txt-muted hover:text-txt-primary"
+            className="p-2 rounded-lg text-txt-muted hover:text-txt-primary transition-colors"
+            aria-label="Toggle Navigation Menu"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-6 h-6 text-gold" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
@@ -175,37 +176,41 @@ export const Navbar: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-bg-card border-b border-border-subtle px-6 py-6"
+            className="lg:hidden bg-bg-card/95 backdrop-blur-xl border-b border-border-subtle px-6 py-6 shadow-2xl"
           >
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 max-w-md mx-auto">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`text-base font-display font-medium ${
-                    pathname === link.href ? 'text-gold' : 'text-txt-primary'
+                  className={`text-base font-display font-medium flex items-center justify-between py-1 transition-colors ${
+                    pathname === link.href ? 'text-gold font-bold' : 'text-txt-primary hover:text-gold'
                   }`}
                 >
-                  {link.name}
+                  <span className="flex items-center gap-2">
+                    {link.isSpecial && <Flame className="w-4 h-4 text-gold" />}
+                    {link.name}
+                  </span>
+                  {pathname === link.href && <span className="w-1.5 h-1.5 rounded-full bg-gold" />}
                 </Link>
               ))}
 
-              <div className="flex items-center gap-4 pt-2">
-                <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)} className="text-xs text-sky-400 flex items-center gap-1.5 font-sans font-semibold">
-                  <User className="w-4 h-4" /> Customer Profile
+              <hr className="border-border-subtle my-1" />
+
+              <div className="grid grid-cols-2 gap-3 pt-1">
+                <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl surface-card border border-sky-500/30 text-sky-400 flex items-center justify-center gap-2 text-xs font-sans font-bold hover:bg-sky-500/10 transition-all">
+                  <User className="w-4 h-4" /> Profile
                 </Link>
-                <Link href="/admin" onClick={() => setMobileMenuOpen(false)} className="text-xs text-amber-400 flex items-center gap-1.5 font-sans font-semibold">
-                  <LayoutDashboard className="w-4 h-4" /> Admin Controls
+                <Link href="/admin" onClick={() => setMobileMenuOpen(false)} className="p-3 rounded-xl surface-card border border-amber-500/30 text-amber-400 flex items-center justify-center gap-2 text-xs font-sans font-bold hover:bg-amber-500/10 transition-all">
+                  <LayoutDashboard className="w-4 h-4" /> Admin
                 </Link>
               </div>
-
-              <hr className="border-border-subtle my-2" />
 
               <Link
                 href="/reserve"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full text-center py-3.5 rounded-xl bg-gradient-to-r from-[#E6C665] via-[#C59B27] to-[#D4AF37] text-soft-black font-extrabold uppercase tracking-wider text-xs font-sans hover:shadow-[0_4px_25px_rgba(197,155,39,0.6)] transition-all"
+                className="w-full text-center py-3.5 rounded-xl bg-gradient-to-r from-[#E6C665] via-[#C59B27] to-[#D4AF37] text-soft-black font-extrabold uppercase tracking-wider text-xs font-sans hover:shadow-[0_4px_25px_rgba(197,155,39,0.6)] active:scale-95 transition-all mt-1"
               >
                 Reserve Table
               </Link>
