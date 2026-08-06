@@ -43,10 +43,11 @@ export const Navbar: React.FC = () => {
           : 'navbar-glass py-2'
       }`}
     >
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      {/* Symmetric Full-Width Outer Container with Identical Left & Right Margins */}
+      <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 h-20 flex items-center justify-between">
         
-        {/* Brand Logo - Equal Margin to Center Nav */}
-        <Link href="/" className="flex items-center gap-3 group shrink-0 mr-4 lg:mr-6">
+        {/* Brand Logo - Perfectly Balanced Left Edge */}
+        <Link href="/" className="flex items-center gap-3 group shrink-0">
           <div className="w-9 h-9 rounded-full bg-coffee flex items-center justify-center text-gold border border-gold/40 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(197,155,39,0.4)] transition-all duration-300">
             <Coffee className="w-4 h-4 text-gold group-hover:rotate-6 transition-transform duration-300" />
           </div>
@@ -60,7 +61,7 @@ export const Navbar: React.FC = () => {
           </div>
         </Link>
 
-        {/* Desktop Nav Links - Perfectly Equal Internal Spacing & Gaps */}
+        {/* Desktop Nav Links - Centered Glass Pill */}
         <nav className="hidden lg:flex items-center gap-2 xl:gap-3 surface-card px-4 xl:px-6 py-2 rounded-full border-border-subtle shrink-0">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
@@ -88,8 +89,8 @@ export const Navbar: React.FC = () => {
           })}
         </nav>
 
-        {/* Desktop Action Tools Section - Mathematically Equal Gaps Between ALL Badges */}
-        <div className="hidden sm:flex items-center gap-3 lg:gap-3.5 ml-4 lg:ml-6 font-sans shrink-0">
+        {/* Desktop Action Tools Section - Perfectly Balanced Right Edge */}
+        <div className="hidden sm:flex items-center gap-3 lg:gap-3.5 font-sans shrink-0">
           
           {/* 1. Customer Profile & Loyalty Badge */}
           <Link
