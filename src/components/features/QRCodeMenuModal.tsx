@@ -142,10 +142,11 @@ export const QRCodeMenuModal: React.FC = () => {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        title="In-Cafe Digital QR Menu"
-        className="w-9 h-9 flex items-center justify-center rounded-full surface-card border border-border-subtle text-txt-muted hover:text-gold hover:border-gold hover:bg-gold/10 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(197,155,39,0.2)] active:scale-95 transition-all duration-300 shrink-0"
+        title="In-Cafe Digital QR Table Menu"
+        className="px-3 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 font-bold text-[11px] flex items-center gap-1.5 hover:bg-emerald-500/25 hover:border-emerald-400 hover:scale-105 shadow-[0_0_15px_rgba(16,185,129,0.2)] active:scale-95 transition-all duration-300 shrink-0 font-sans"
       >
-        <QrCode className="w-4 h-4" />
+        <QrCode className="w-3.5 h-3.5 text-emerald-400" />
+        <span className="hidden xl:inline uppercase tracking-wider text-[10px]">QR Menu</span>
       </button>
 
       {mounted && createPortal(modalContent, document.body)}
